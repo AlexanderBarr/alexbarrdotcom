@@ -9,7 +9,6 @@ export default function LoginPage() {
   const router = useRouter(); // ✅ correct usage for App Router
 
   const handleLogin = async () => {
-    console.log('h')
     const res = await fetch("/api/login", {
       method: "POST",
       headers: {
@@ -19,7 +18,6 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
-      console.log('correct')
       router.push("/"); // ✅ redirect after login
     } else {
       setError("Incorrect password");
