@@ -3,19 +3,22 @@ import { NextResponse, type NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const auth = request.cookies.get("auth");
 
+  const isLoggedIn = auth?.value === "true";
+  const isLoginPage = request.nextUrl.pathname === "/login";
+
   if (auth?.value === "true") {
     return NextResponse.next();
   }
 
-  // Let /login and /api/login through
-  if (request.nextUrl.pathname.startsWith("/login") || request.nextUrl.pathname.startsWith("/api/login")) {
-    return NextResponse.next();
-  }
+  if (!isLoggedIn && !isLoginPage) {
+    // Redirect to login page
+  console.log('not logged in')
 
-  // Redirect everything else to login
-  const url = request.nextUrl.clone();
-  url.pathname = "/login";
-  return NextResponse.redirect(url);
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+  console.log('auth and logged in redirect')
+
+  return NextResponse.next();
 }
 
 export const config = {
