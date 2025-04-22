@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./_components/Navbar";
 import Hero from "./_components/Hero";
 import AboutSection from "./_components/AboutSection";
+import AnimatedHeader from "./_components/header/animated-header";
 
 export default async function Home() {
   return (
@@ -13,6 +14,7 @@ export default async function Home() {
 
       <main className="min-h-screen bg-gray-50 text-gray-900">
         <Navbar />
+        <AnimatedHeader/>
         <Hero />
         <AboutSection />
       </main>
