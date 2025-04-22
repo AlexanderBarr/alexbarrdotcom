@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Square = {
   id: string;
@@ -10,27 +10,28 @@ type Square = {
   color: string | undefined;
 };
 
+const greenShades = [
+  "bg-green-300",
+  "bg-green-400",
+  "bg-green-500",
+  "bg-green-600",
+  "bg-green-700",
+];
+
+function getRandomGreenShade() {
+  return greenShades[Math.floor(Math.random() * greenShades.length)];
+}
+
 export default function AnimatedHeader() {
-  // === Editable Settings ===
   const rowCount = 7;
   const gap = 4;
   const speed = 0.7;
-  const greenShades = [
-    "bg-green-300",
-    "bg-green-400",
-    "bg-green-500",
-    "bg-green-600",
-    "bg-green-700",
-  ];
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [squares, setSquares] = useState<Square[]>([]);
+  const squaresRef = useRef<Square[]>([]);
   const animationRef = useRef<number | null>(null);
-
-  const getRandomGreenShade = useCallback(
-    () => greenShades[Math.floor(Math.random() * greenShades.length)],
-    [greenShades],
-  );
+  const startedRef = useRef(false); // ensures one animation loop
 
   // === Setup Grid on Mount/Resize ===
   useEffect(() => {
@@ -59,49 +60,43 @@ export default function AnimatedHeader() {
         }
       }
 
+      squaresRef.current = newSquares;
       setSquares(newSquares);
     };
 
     generateGrid();
     window.addEventListener("resize", generateGrid);
     return () => window.removeEventListener("resize", generateGrid);
-  }, [getRandomGreenShade]);
+  }, []);
 
-  // === Animation Loop ===
+  // === Animation Loop (runs only once) ===
   useEffect(() => {
-    if (squares.length === 0) return;
+    if (startedRef.current || squaresRef.current.length === 0) return;
+    startedRef.current = true;
 
     const animate = () => {
-      setSquares((prevSquares) => {
-        const squareSize = prevSquares[0]?.size ?? 0;
-        const totalSize = squareSize + gap;
+      const prevSquares = squaresRef.current;
+      const squareSize = prevSquares[0]?.size ?? 0;
+      const totalSize = squareSize + gap;
 
-        // Group squares by row
-        const rowMap: Record<number, Square[]> = {};
-        for (const sq of prevSquares) {
-          (rowMap[sq.y] ??= []).push(sq);
+      const rowMap: Record<number, Square[]> = {};
+      for (const sq of prevSquares) {
+        (rowMap[sq.y] ??= []).push(sq);
+      }
+
+      const updatedSquares = prevSquares.map((sq) => {
+        let newX = sq.x - speed;
+        if (newX < -sq.size) {
+          const sameRow = rowMap[sq.y] ?? [];
+          const rightmostX = Math.max(...sameRow.map((s) => s.x));
+          newX = rightmostX + totalSize;
+          return { ...sq, x: newX, color: getRandomGreenShade() };
         }
-
-        return prevSquares.map((sq) => {
-          let newX = sq.x - speed;
-
-          if (newX < -sq.size) {
-            const sameRow = rowMap[sq.y] ?? [];
-            const xValues = sameRow.map((s) => s.x);
-            const rightmostX = xValues.length > 0 ? Math.max(...xValues) : 0;
-
-            newX = rightmostX + totalSize;
-
-            return {
-              ...sq,
-              x: newX,
-              color: getRandomGreenShade(),
-            };
-          }
-
-          return { ...sq, x: newX };
-        });
+        return { ...sq, x: newX };
       });
+
+      squaresRef.current = updatedSquares;
+      setSquares(updatedSquares); // one update per frame
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -111,9 +106,8 @@ export default function AnimatedHeader() {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [squares, getRandomGreenShade]);
+  }, []); // ✅ no dependencies to re-trigger it
 
-  // === Render ===
   return (
     <header className="relative h-128 w-full overflow-hidden bg-green-50 md:h-80 lg:h-96">
       <div ref={containerRef} className="absolute inset-0">

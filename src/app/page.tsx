@@ -14,7 +14,7 @@ export default async function Home() {
 
       <main className="min-h-screen bg-gray-50 text-gray-900">
         <Navbar />
-        <AnimatedHeader/>
+        <AnimatedHeader />
         <Hero />
         <AboutSection />
       </main>
