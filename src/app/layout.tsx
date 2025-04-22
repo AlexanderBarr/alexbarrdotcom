@@ -23,7 +23,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geist.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geist.variable}`}>
       <body>{children}</body>
     </html>
   );
