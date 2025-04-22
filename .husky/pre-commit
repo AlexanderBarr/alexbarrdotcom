@@ -1,4 +1,1 @@
 # .husky/pre-commit
-
-pnpm lint
-pnpm format:write # If you have a formatter (e.g., Prettier)

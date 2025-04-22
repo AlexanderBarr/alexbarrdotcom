@@ -1,2 +1,4 @@
 # .husky/pre-push
+pnpm lint
+pnpm format:write # If you have a formatter (e.g., Prettier)
 pnpm build
