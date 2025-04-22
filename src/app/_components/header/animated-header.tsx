@@ -127,7 +127,7 @@ export default function AnimatedHeader() {
 
       <div className="relative z-10 flex h-full items-center justify-center">
         <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
-          I'm a Full Stack Developer
+          {"I'm a Full Stack Developer"}
         </h1>
       </div>
     </header>
