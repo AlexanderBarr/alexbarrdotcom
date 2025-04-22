@@ -44,7 +44,7 @@ export default function AnimatedHeader() {
       const squareSize = Math.floor(height / rowCount);
       const totalSize = squareSize + gap;
 
-      const cols = Math.ceil(width / totalSize) + 3;
+      const cols = Math.ceil(width / totalSize) + 10;
       const rows = Math.ceil(height / totalSize);
 
       const newSquares: Square[] = [];
@@ -110,7 +110,7 @@ export default function AnimatedHeader() {
 
   return (
     <header className="relative h-128 w-full overflow-hidden bg-green-50 md:h-80 lg:h-96">
-      <div ref={containerRef} className="absolute inset-0">
+      <div ref={containerRef} className="absolute inset-0 opacity-50">
         {squares.map((sq) => (
           <div
             key={sq.id}
@@ -127,7 +127,7 @@ export default function AnimatedHeader() {
 
       <div className="relative z-10 flex h-full items-center justify-center">
         <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
-          Your Header Content
+          I'm a Full Stack Developer
         </h1>
       </div>
     </header>
