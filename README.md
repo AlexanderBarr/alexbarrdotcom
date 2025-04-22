@@ -7,6 +7,7 @@
 ## Thoughts
 
 - Establish git naming conventions (https://www.conventionalcommits.org/en/v1.0.0/)
+- Use git add -p to review changes before commit
 
 # ✅ Conventional Commits – Title → Meaning
 

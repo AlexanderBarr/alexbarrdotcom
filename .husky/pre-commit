@@ -1,2 +1,4 @@
 # .husky/pre-commit
-pnpm lint && pnpm build
+
+pnpm lint
+pnpm format # If you have a formatter (e.g., Prettier)
