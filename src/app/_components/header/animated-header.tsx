@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type Square = {
   id: string;
@@ -27,8 +27,10 @@ export default function AnimatedHeader() {
   const [squares, setSquares] = useState<Square[]>([]);
   const animationRef = useRef<number | null>(null);
 
-  const getRandomGreenShade = () =>
-    greenShades[Math.floor(Math.random() * greenShades.length)];
+  const getRandomGreenShade = useCallback(
+    () => greenShades[Math.floor(Math.random() * greenShades.length)],
+    [greenShades],
+  );
 
   // === Setup Grid on Mount/Resize ===
   useEffect(() => {
@@ -63,7 +65,7 @@ export default function AnimatedHeader() {
     generateGrid();
     window.addEventListener("resize", generateGrid);
     return () => window.removeEventListener("resize", generateGrid);
-  }, []);
+  }, [getRandomGreenShade]);
 
   // === Animation Loop ===
   useEffect(() => {
@@ -77,8 +79,7 @@ export default function AnimatedHeader() {
         // Group squares by row
         const rowMap: Record<number, Square[]> = {};
         for (const sq of prevSquares) {
-          if (!rowMap[sq.y]) rowMap[sq.y] = [];
-          rowMap[sq.y]!.push(sq);
+          (rowMap[sq.y] ??= []).push(sq);
         }
 
         return prevSquares.map((sq) => {
@@ -110,7 +111,7 @@ export default function AnimatedHeader() {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [squares]);
+  }, [squares, getRandomGreenShade]);
 
   // === Render ===
   return (
