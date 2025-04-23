@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "./_components/Navbar";
 import AboutSection from "./_components/AboutSection";
-import AnimatedHeader from "./_components/header/animated-header";
+import AnimatedHeader from "./_components/header/AnimatedHeader";
 
 export default async function Home() {
   return (

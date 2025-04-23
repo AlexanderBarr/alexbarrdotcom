@@ -1,8 +1,6 @@
+// components/MovingGridBackground.tsx
 "use client";
-
 import { useEffect, useRef, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import avatar from "~/assets/avatar.jpg";
 
 type Square = {
   id: string;
@@ -24,18 +22,17 @@ function getRandomGreenShade() {
   return greenShades[Math.floor(Math.random() * greenShades.length)];
 }
 
-export default function AnimatedHeader() {
+export default function MovingGridBackground() {
   const rowCount = 7;
   const gap = 4;
-  const speed = 0.7;
+  const speed = 0;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [squares, setSquares] = useState<Square[]>([]);
   const squaresRef = useRef<Square[]>([]);
   const animationRef = useRef<number | null>(null);
-  const startedRef = useRef(false); // ensures one animation loop
+  const startedRef = useRef(false);
 
-  // === Setup Grid on Mount/Resize ===
   useEffect(() => {
     const generateGrid = () => {
       const container = containerRef.current;
@@ -71,7 +68,6 @@ export default function AnimatedHeader() {
     return () => window.removeEventListener("resize", generateGrid);
   }, []);
 
-  // === Animation Loop (runs only once) ===
   useEffect(() => {
     if (startedRef.current || squaresRef.current.length === 0) return;
     startedRef.current = true;
@@ -98,8 +94,7 @@ export default function AnimatedHeader() {
       });
 
       squaresRef.current = updatedSquares;
-      setSquares(updatedSquares); // one update per frame
-
+      setSquares(updatedSquares);
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -108,41 +103,22 @@ export default function AnimatedHeader() {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, []); // ✅ no dependencies to re-trigger it
+  }, []);
 
   return (
-    <header className="relative h-128 w-full overflow-hidden bg-green-50 md:h-80 lg:h-96">
-      <div ref={containerRef} className="absolute inset-0 opacity-50">
-        {squares.map((sq) => (
-          <div
-            key={sq.id}
-            className={`absolute ${sq.color}`}
-            style={{
-              width: `${sq.size}px`,
-              height: `${sq.size}px`,
-              transform: `translate(${sq.x}px, ${sq.y}px)`,
-              transition: "none",
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 flex h-full items-center justify-center space-x-6">
-        <Avatar className="relative flex h-52 w-52 items-center justify-center">
-          <AvatarImage
-            src={avatar.src}
-            alt="Avatar"
-            className="h-32 w-32 rounded-full border-4 border-green-900 object-cover shadow-lg md:h-40 md:w-40 lg:h-48 lg:w-48"
-          />
-          <AvatarFallback className="text-xl font-semibold text-gray-500 md:text-2xl">
-            CN
-          </AvatarFallback>
-        </Avatar>
-
-        <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
-          {"I'm a Full Stack Developer"}
-        </h1>
-      </div>
-    </header>
+    <div ref={containerRef} className="absolute inset-0 opacity-50">
+      {squares.map((sq) => (
+        <div
+          key={sq.id}
+          className={`absolute ${sq.color}`}
+          style={{
+            width: `${sq.size}px`,
+            height: `${sq.size}px`,
+            transform: `translate(${sq.x}px, ${sq.y}px)`,
+            transition: "none",
+          }}
+        />
+      ))}
+    </div>
   );
 }
