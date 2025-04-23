@@ -6,6 +6,8 @@
 
 ## Thoughts
 
+- TypeError: a.default.detectStore(...) is undefinedh1-check.js:1:1301
+
 - Establish git naming conventions (https://www.conventionalcommits.org/en/v1.0.0/)
 - Use git add -p to review changes before commit
 
