@@ -7,12 +7,12 @@ import { cn } from "~/lib/utils";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "projects", href: "/projects" },
+  { label: "about", href: "/about" },
+  { label: "contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="flex items-center justify-between border-b bg-white px-4 py-3 shadow-sm">
       <Link href="/" className="text-xl font-bold tracking-tight">
-        MySite
+        alexbarr
       </Link>
 
       {/* Desktop Navigation */}
@@ -31,8 +31,8 @@ export default function Navbar() {
             key={href}
             href={href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-blue-600",
-              pathname === href ? "text-blue-600" : "text-gray-700",
+              "text-sm font-medium transition-colors hover:text-green-700",
+              pathname === href ? "text-green-700" : "text-gray-700",
             )}
           >
             {label}
@@ -48,14 +48,15 @@ export default function Navbar() {
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="p-4">
+          <DialogTitle>menu</DialogTitle>
           <div className="mt-6 flex flex-col gap-3">
             {navItems.map(({ label, href }) => (
               <Link
                 key={href}
                 href={href}
                 className={cn(
-                  "text-lg font-semibold hover:text-blue-600",
-                  pathname === href ? "text-blue-600" : "text-gray-800",
+                  "text-lg font-semibold hover:text-green-700",
+                  pathname === href ? "text-green-700" : "text-gray-800",
                 )}
               >
                 {label}
