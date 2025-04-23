@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./_components/Navbar";
 import AboutSection from "./_components/AboutSection";
 import AnimatedHeader from "./_components/header/animated-header";
+import { Button } from "~/components/ui/button";
 
 export default async function Home() {
   return (
