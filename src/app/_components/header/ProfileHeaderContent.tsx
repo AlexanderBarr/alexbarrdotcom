@@ -26,12 +26,15 @@ export default function ProfileHeaderContent() {
         </AvatarFallback>
       </Avatar>
 
-      <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+      {/* <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
         I`&apos;`m a{" "}
         <span className="animate-fade-in text-green-900 transition-opacity duration-300">
           {typedText}
         </span>
         <span className="animate-pulse">|</span>
+      </h1> */}
+      <h1 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+        {"Turning Ideas into Interactive Experiences."}
       </h1>
     </div>
   );
