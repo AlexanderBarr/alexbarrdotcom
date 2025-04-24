@@ -1,14 +1,6 @@
-// components/MovingGridBackground.tsx
 "use client";
 import { useEffect, useRef, useState } from "react";
-
-type Square = {
-  id: string;
-  x: number;
-  y: number;
-  size: number;
-  color: string | undefined;
-};
+import React from "react";
 
 const greenShades = [
   "bg-green-300",
@@ -25,100 +17,66 @@ function getRandomGreenShade() {
 export default function MovingGridBackground() {
   const rowCount = 7;
   const gap = 4;
-  const speed = 0;
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const [squares, setSquares] = useState<Square[]>([]);
-  const squaresRef = useRef<Square[]>([]);
-  const animationRef = useRef<number | null>(null);
-  const startedRef = useRef(false);
+  const [gridContent, setGridContent] = useState<React.ReactNode>(null);
 
   useEffect(() => {
-    const generateGrid = () => {
-      const container = containerRef.current;
-      if (!container) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
-      const squareSize = Math.floor(height / rowCount);
-      const totalSize = squareSize + gap;
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+    const squareSize = Math.floor(height / rowCount);
+    const totalSize = squareSize + gap;
 
-      const cols = Math.ceil(width / totalSize) + 10;
-      const rows = Math.ceil(height / totalSize);
+    const cols = Math.ceil(width / totalSize) + 2;
+    const rows = Math.ceil(height / totalSize);
 
-      const newSquares: Square[] = [];
+    const makeGrid = () => {
+      const squares = [];
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
-          newSquares.push({
-            id: `${col}-${row}`,
-            x: col * totalSize,
-            y: row * totalSize,
-            size: squareSize,
-            color: getRandomGreenShade(),
-          });
+          squares.push(
+            <div
+              key={`${col}-${row}-${Math.random()}`}
+              className={`absolute ${getRandomGreenShade()}`}
+              style={{
+                width: `${squareSize}px`,
+                height: `${squareSize}px`,
+                left: `${col * totalSize}px`,
+                top: `${row * totalSize}px`,
+              }}
+            />,
+          );
         }
       }
-
-      squaresRef.current = newSquares;
-      setSquares(newSquares);
+      return <>{squares}</>;
     };
 
-    generateGrid();
-    window.addEventListener("resize", generateGrid);
-    return () => window.removeEventListener("resize", generateGrid);
-  }, []);
-
-  useEffect(() => {
-    if (startedRef.current || squaresRef.current.length === 0) return;
-    startedRef.current = true;
-
-    const animate = () => {
-      const prevSquares = squaresRef.current;
-      const squareSize = prevSquares[0]?.size ?? 0;
-      const totalSize = squareSize + gap;
-
-      const rowMap: Record<number, Square[]> = {};
-      for (const sq of prevSquares) {
-        (rowMap[sq.y] ??= []).push(sq);
-      }
-
-      const updatedSquares = prevSquares.map((sq) => {
-        let newX = sq.x - speed;
-        if (newX < -sq.size) {
-          const sameRow = rowMap[sq.y] ?? [];
-          const rightmostX = Math.max(...sameRow.map((s) => s.x));
-          newX = rightmostX + totalSize;
-          return { ...sq, x: newX, color: getRandomGreenShade() };
-        }
-        return { ...sq, x: newX };
-      });
-
-      squaresRef.current = updatedSquares;
-      setSquares(updatedSquares);
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
+    setGridContent(makeGrid());
   }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 opacity-50">
-      {squares.map((sq) => (
-        <div
-          key={sq.id}
-          className={`absolute ${sq.color}`}
-          style={{
-            width: `${sq.size}px`,
-            height: `${sq.size}px`,
-            transform: `translate(${sq.x}px, ${sq.y}px)`,
-            transition: "none",
-          }}
-        />
-      ))}
+    <div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden opacity-50"
+    >
+      <div
+        className="animate-scroll absolute h-full bg-transparent"
+        style={{
+          display: "flex",
+          width: "200%",
+        }}
+      >
+        {/* Two copies of the grid for seamless looping */}
+        <div className="relative" style={{ width: "50%", height: "100%" }}>
+          {gridContent}
+        </div>
+        <div className="relative" style={{ width: "50%", height: "100%" }}>
+          {gridContent}
+        </div>
+      </div>
     </div>
   );
 }

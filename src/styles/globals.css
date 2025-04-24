@@ -130,3 +130,15 @@ h3 {
     @apply bg-background text-foreground;
   }
 }
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scrollLeft 20s linear infinite;
+}
