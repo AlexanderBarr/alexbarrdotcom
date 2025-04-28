@@ -26,13 +26,11 @@ export default function MovingGridBackground() {
 
     const width = container.offsetWidth * multiplier;
     const height = container.offsetHeight;
-
-    // Adjust square size so that all rows fit evenly
-    const squareSize = Math.floor((height + gap) / rowCount) - gap;
-
+    const squareSize = Math.floor(height / rowCount);
     const totalSize = squareSize + gap;
-    const rows = rowCount;
+
     const cols = Math.ceil(width / totalSize);
+    const rows = Math.ceil(height / totalSize);
 
     const squares = [];
     for (let row = 0; row < rows; row++) {
@@ -70,17 +68,6 @@ export default function MovingGridBackground() {
       >
         <div className="relative h-full w-full">{gridContent}</div>
       </div>
-
-      <style jsx>{`
-        @keyframes scrollLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-      `}</style>
     </div>
   );
 }

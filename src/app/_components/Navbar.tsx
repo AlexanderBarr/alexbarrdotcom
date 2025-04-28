@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -8,6 +7,7 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import ScreenSizeDebugger from "./ScreenSizeDebugger";
 
 const navItems = [
   { label: "projects", href: "/projects" },
@@ -24,7 +24,12 @@ export default function Navbar() {
         alexbarr
       </Link>
 
-      {/* Desktop Navigation */}
+      {/* Centered ScreenSizeDebugger within the navbar */}
+      <div className="hidden items-start justify-center md:flex md:flex-1">
+        <ScreenSizeDebugger />
+      </div>
+
+      {/* Desktop Navigation Links */}
       <div className="hidden gap-4 md:flex">
         {navItems.map(({ label, href }) => (
           <Link

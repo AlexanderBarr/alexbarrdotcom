@@ -2,7 +2,9 @@
 
 ## Tasks/Todo
 
-- [x] Task done
+- [x] Nav Bar
+- [ ] Hero
+  - [ ]
 
 ## Thoughts
 
