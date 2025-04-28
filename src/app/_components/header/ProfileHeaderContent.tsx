@@ -11,8 +11,8 @@ export default function ProfileHeaderContent() {
       </h1>
 
       {/* Avatar positioned at the bottom center */}
-      <div className="absolute bottom-[-6.5rem] left-1/2 -translate-x-1/2 transform md:bottom-[-8rem] lg:bottom-[-9rem]">
-        <Avatar className="h-48 w-48 bg-white shadow-lg md:h-64 md:w-64 lg:h-72 lg:w-72">
+      <div className="absolute bottom-[-5.5rem] left-1/2 -translate-x-1/2 transform md:bottom-[-8rem] lg:bottom-[-9rem]">
+        <Avatar className="h-48 w-48 border-green-700 bg-white shadow-lg md:h-64 md:w-64 lg:h-72 lg:w-72">
           <AvatarImage
             src={avatar.src}
             alt="Avatar"
