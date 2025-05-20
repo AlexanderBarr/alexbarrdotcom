@@ -1,7 +1,7 @@
 // app/page.tsx
 
 import Navbar from "./_components/Navbar";
-import AboutSection from "./_components/AboutSection";
+// import AboutSection from "./_components/AboutSection";
 import AnimatedHeader from "./_components/header/AnimatedHeader";
 
 export const metadata = {
