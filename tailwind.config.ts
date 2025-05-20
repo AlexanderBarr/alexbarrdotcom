@@ -1,4 +1,5 @@
 // tailwind.config.ts
+
 export default {
   theme: {
     extend: {
@@ -13,4 +14,5 @@ export default {
       },
     },
   },
+  plugins: [],
 };

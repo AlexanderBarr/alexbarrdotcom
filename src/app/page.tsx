@@ -1,21 +1,20 @@
-import Head from "next/head";
+// app/page.tsx
+
 import Navbar from "./_components/Navbar";
 import AboutSection from "./_components/AboutSection";
 import AnimatedHeader from "./_components/header/AnimatedHeader";
 
-export default async function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-red-800 text-white">
-      <Head>
-        <title>My Portfolio</title>
-        <meta name="description" content="My developer portfolio" />
-      </Head>
+export const metadata = {
+  title: "My Portfolio",
+  description: "My developer portfolio",
+};
 
-      <main className="min-h-screen w-screen bg-gray-50 text-gray-900">
-        <Navbar />
-        <AnimatedHeader />
-        <AboutSection />
-      </main>
+export default function Home() {
+  return (
+    <main className="min-h-screen w-full overflow-auto bg-gray-50 text-gray-900">
+      <Navbar />
+      <AnimatedHeader />
+      {/* <AboutSection /> */}
     </main>
   );
 }

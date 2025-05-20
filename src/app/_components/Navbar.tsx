@@ -25,7 +25,7 @@ export default function Navbar() {
       </Link>
 
       {/* Centered ScreenSizeDebugger within the navbar */}
-      <div className="hidden items-start justify-center md:flex md:flex-1">
+      <div className="items-start justify-center md:flex md:flex-1">
         <ScreenSizeDebugger />
       </div>
 

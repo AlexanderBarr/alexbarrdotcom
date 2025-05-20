@@ -1,15 +1,15 @@
+import AvatarHeader from "./AvatarHeader";
 import MovingGridBackground from "./MovingGridBackground";
 import ProfileHeaderContent from "./ProfileHeaderContent";
-
 export default function AnimatedHeader() {
   return (
-    <header className="relative w-full overflow-hidden bg-green-50 pb-24 md:pb-32 lg:pb-40">
-      {/* Added `pb-*` padding-bottom to give space for the avatar */}
-
-      <div className="relative h-[28rem] md:h-[32rem]">
-        <MovingGridBackground />
-        <ProfileHeaderContent />
-      </div>
+    <header className="relative h-[18rem] w-full bg-green-50 sm:h-[24rem] md:h-[30rem] lg:h-[36rem] xl:h-[42rem]">
+      {/* <div className="relative h-[32rem] sm:h-[16rem] md:h-[24rem]"> */}
+      {/* <div className="relative"> do i even need this div */}
+      <MovingGridBackground />
+      {/* <ProfileHeaderContent />
+        <AvatarHeader /> */}
+      {/* </div> */}
     </header>
   );
 }
