@@ -33,3 +33,12 @@
 - 'test' → Adding or updating tests.
 
 - 'Footers (other than BREAKING CHANGE)' → Optional metadata at the end of a commit, following [git trailer format](https://git-scm.com/docs/git-interpret-trailers), such as `Co-authored-by`, `Reviewed-by`, etc.
+
+✨ Quick Reference
+Functional Rendering static UI like headers, footers
+Functional + Hooks State, effects, API calls
+Class Component Maintaining old code
+Presentational Stateless, reusable UI like Button, Card
+Container Logic-heavy, data fetching, passing props down
+HOC Auth protection, feature flags, cross-cutting logic
+PureComponent Performance in legacy class-based UIs
