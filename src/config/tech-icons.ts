@@ -1,6 +1,6 @@
 import type { TechnologyIcon } from "~/types/tech-icons";
 
-export const techIcons: { [key: string]: TechnologyIcon } = {
+export const techIcons: Record<string, TechnologyIcon> = {
   JavaScript: {
     type: "svg",
     name: "JavaScript",
