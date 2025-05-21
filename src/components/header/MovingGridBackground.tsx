@@ -37,7 +37,6 @@ export default function MovingGridBackground() {
   const [colorGrid, setColorGrid] = useState<string[][]>([]);
   const [gridContent, setGridContent] = useState<React.ReactNode>(null);
   const [gridDimensions, setGridDimensions] = useState({ width: 0, height: 0 });
-  const previousContentRef = useRef<React.ReactNode>(null);
 
   // Generate color grid once and store it
   useEffect(() => {
@@ -96,27 +95,22 @@ export default function MovingGridBackground() {
       }
     }
 
-    previousContentRef.current = gridContent;
     setGridContent(squares);
-  }, [colorGrid, gridContent]);
+  }, [colorGrid, gap, rowCount, multiplier, maxCols, MIN_SQUARE_SIZE]);
 
   useEffect(() => {
     const debouncedGenerateGrid = debounce(generateGrid, 100);
 
-    const handleResize = () => {
-      generateGrid();
-      debouncedGenerateGrid();
-    };
+    // Only use the debounced version for resize
+    window.addEventListener("resize", debouncedGenerateGrid);
 
+    // Initial generation
     generateGrid();
-    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedGenerateGrid);
     };
   }, [generateGrid]);
-
-  const currentContent = gridContent ?? previousContentRef.current;
 
   // Create array of copies for continuous scrolling
   const copies = Array(COPIES).fill(null);
@@ -139,7 +133,7 @@ export default function MovingGridBackground() {
               backfaceVisibility: "hidden",
             }}
           >
-            {currentContent}
+            {gridContent}
           </div>
         ))}
       </div>

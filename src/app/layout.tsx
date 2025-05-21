@@ -1,9 +1,9 @@
-import "~/styles/globals.css";
+import "../styles/globals.css";
 
 import { type Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import { ThemeProvider } from "~/components/theme-provider";
-import UpdatingNotice from "~/components/SiteMaintance/UpdatingNotice";
+import { ThemeProvider } from "../components/theme-provider";
+import UpdatingNotice from "../components/SiteMaintance/UpdatingNotice";
 // import UpdatingNotice from "./_components/UpdatingNotice";
 
 export const metadata: Metadata = {
