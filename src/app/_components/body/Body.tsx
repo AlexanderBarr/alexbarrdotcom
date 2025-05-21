@@ -8,6 +8,10 @@ const Body = () => {
           <BodyCardTile />
           <BodyCardTile />
           <BodyCardTile />
+          <BodyCardTile />
+          <BodyCardTile />
+          <BodyCardTile />
+          <BodyCardTile />
         </div>
       </div>
     </section>
