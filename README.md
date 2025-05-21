@@ -3,8 +3,19 @@
 ## Tasks/Todo
 
 - [x] Nav Bar
+      -- [x] Add Links
 - [ ] Hero
-  - [ ]
+      -- [x] Create GitHub like animation background
+      -- [x] Add Header Text
+      -- [x] Add Profile Avatar
+      -- [x] Make it responsive
+
+- [ ] Body
+      -- [ ] Create interactive tiles
+      --- [] Tile should grab data from JSON
+      --- [ ] When tile is clicked open dialog
+      -- [x] Create body dialog
+      -- [] Body dialog should grab data from JSON
 
 ## Thoughts
 
