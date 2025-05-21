@@ -2,28 +2,43 @@
 
 ## Tasks/Todo
 
-- [x] Nav Bar
-      -- [x] Add Links
-- [ ] Hero
-      -- [x] Create GitHub like animation background
-      -- [x] Add Header Text
-      -- [x] Add Profile Avatar
-      -- [x] Make it responsive
+### Navigation
 
-- [ ] Body
-      -- [ ] Create interactive tiles
-      --- [] Tile should grab data from JSON
-      --- [ ] When tile is clicked open dialog
-      -- [x] Create body dialog
-      --- [] Body dialog should grab data from JSON
-      --- [] Body dialog should include tech used as icons
+- [x] Implement Navigation Bar
+  - [ ] Add Navigation Links
 
-## Thoughts
+### Hero Section
 
-- TypeError: a.default.detectStore(...) is undefinedh1-check.js:1:1301
+- [x] Create Hero Section
+  - [x] Implement GitHub-like Animation Background
+  - [x] Add Header Text
+  - [x] Add Profile Avatar
+  - [x] Make Hero Section Responsive
+  - [ ] Improve lightmode visuals
 
-- Establish git naming conventions (https://www.conventionalcommits.org/en/v1.0.0/)
-- Use git add -p to review changes before commit
+### Project Showcase
+
+- [ ] Interactive Project Tiles
+  - [x] Implement Data-Driven Tiles from JSON
+  - [x] Create Project Dialog Component
+  - [x] Implement JSON Data Integration for Dialog Content
+  - [x] Add Technology Stack Icons in Dialog
+  - [ ] Fix Dialog Mobile Responsiveness
+  - [ ] Add accordian to organise information
+  - [ ] add dialog border animation
+  - [ ] fix shadow effect on project tiles
+  - [ ] remove dummy text from project information
+
+### Mobile Optimisation
+
+- [ ] Improve Mobile Layout
+  - [ ] Optimise Padding for Mobile Devices
+  - [ ] Enhance Dialog Responsiveness on Mobile
+
+### Future Enhancements
+
+- [x] Add Dark/Light Theme Toggle
+- [ ] Implement Contact Form
 
 # ✅ Conventional Commits – Title → Meaning
 
