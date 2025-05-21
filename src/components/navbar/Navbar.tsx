@@ -7,6 +7,7 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { ThemeToggle } from "~/components/theme-toggle";
 import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
 
 const navItems = [
@@ -19,8 +20,11 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between border-b bg-white px-4 py-3 shadow-sm">
-      <Link href="/" className="text-xl font-bold tracking-tight">
+    <nav className="border-border bg-background flex items-center justify-between border-b px-4 py-3 shadow-sm">
+      <Link
+        href="/"
+        className="text-foreground text-xl font-bold tracking-tight"
+      >
         alexbarr
       </Link>
 
@@ -30,46 +34,55 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Navigation Links */}
-      <div className="hidden gap-4 md:flex">
+      <div className="hidden items-center gap-4 md:flex">
         {navItems.map(({ label, href }) => (
           <Link
             key={href}
             href={href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-green-700",
-              pathname === href ? "text-green-700" : "text-gray-700",
+              "hover:text-primary text-sm font-medium transition-colors",
+              pathname === href ? "text-primary" : "text-muted-foreground",
             )}
           >
             {label}
           </Link>
         ))}
+        <ThemeToggle />
       </div>
 
       {/* Mobile Menu */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="right" className="p-4">
-          <DialogTitle>menu</DialogTitle>
-          <div className="mt-6 flex flex-col gap-3">
-            {navItems.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className={cn(
-                  "text-lg font-semibold hover:text-green-700",
-                  pathname === href ? "text-green-700" : "text-gray-800",
-                )}
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
-        </SheetContent>
-      </Sheet>
+      <div className="flex items-center gap-2 md:hidden">
+        <ThemeToggle />
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="right"
+            className="border-border bg-background p-4"
+          >
+            <DialogTitle className="text-foreground">menu</DialogTitle>
+            <div className="mt-6 flex flex-col gap-3">
+              {navItems.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={cn(
+                    "hover:text-primary text-lg font-semibold transition-colors",
+                    pathname === href
+                      ? "text-primary"
+                      : "text-muted-foreground",
+                  )}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
     </nav>
   );
 }

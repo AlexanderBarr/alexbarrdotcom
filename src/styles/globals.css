@@ -135,10 +135,19 @@ h3 {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
 
 .animate-scroll {
-  animation: scrollLeft 20s linear infinite;
+  display: inline-block;
+  animation: scrollLeft 40s linear infinite;
+  will-change: transform;
+}
+
+/* Add a container class to handle the overflow and sizing */
+.scroll-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 }

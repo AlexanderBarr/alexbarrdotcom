@@ -15,7 +15,7 @@ const BodyCardTile = ({ project }: BodyCardTileProps) => {
   return (
     <>
       <Card
-        className="group relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-none border-none shadow-md"
+        className="group relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-none border-none shadow-md transition-colors"
         onClick={() => setIsOpen(true)}
       >
         <div
@@ -24,12 +24,12 @@ const BodyCardTile = ({ project }: BodyCardTileProps) => {
             backgroundImage: `url(/images${project.image})`,
             backgroundSize: "cover",
             backfaceVisibility: "hidden",
-            opacity: 0.6,
+            opacity: 0.8,
           }}
         />
-        <div className="absolute bottom-0 z-10 w-full p-4 text-black">
-          <h3 className="relative w-full text-3xl leading-tight font-bold">
-            <span className="relative inline-block w-fit after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:ease-out group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
+        <div className="from-background/80 absolute bottom-0 z-10 w-full bg-gradient-to-t to-transparent p-4">
+          <h3 className="text-foreground relative w-full text-3xl leading-tight font-bold">
+            <span className="after:bg-primary relative inline-block w-fit after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-full after:origin-bottom-right after:scale-x-0 after:transition-transform after:duration-300 after:ease-out group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
               {project.title}
             </span>
           </h3>
