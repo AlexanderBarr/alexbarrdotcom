@@ -15,7 +15,8 @@
       --- [] Tile should grab data from JSON
       --- [ ] When tile is clicked open dialog
       -- [x] Create body dialog
-      -- [] Body dialog should grab data from JSON
+      --- [] Body dialog should grab data from JSON
+      --- [] Body dialog should include tech used as icons
 
 ## Thoughts
 
