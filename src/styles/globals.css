@@ -5,7 +5,7 @@
 
 :root {
   --font-geist-sans: "Geist", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -41,13 +41,13 @@
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-open-sans);
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-open-sans);
 }
 
 @theme inline {

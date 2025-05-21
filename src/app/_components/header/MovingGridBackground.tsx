@@ -85,7 +85,7 @@ export default function MovingGridBackground() {
         style={{
           display: "inline-block",
           width: "500%",
-          animation: "scrollLeft 20s linear infinite",
+          animation: "scrollLeft 50s linear infinite",
         }}
       >
         <div className="relative h-full">{gridContent}</div>
