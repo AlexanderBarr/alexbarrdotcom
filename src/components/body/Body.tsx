@@ -1,20 +1,18 @@
+import { getAllProjects } from "~/lib/projects";
 import BodyCardTile from "./BodyCardTile";
 
 const Body = () => {
+  const projects = getAllProjects();
+  console.log(projects);
+
   return (
-    <section id="body" className="w-full">
-      <div className="container mx-auto px-2 py-15">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <BodyCardTile />
-          <BodyCardTile />
-          <BodyCardTile />
-          <BodyCardTile />
-          <BodyCardTile />
-          <BodyCardTile />
-          <BodyCardTile />
-        </div>
+    <div className="container mx-auto py-12">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        {projects.map((project) => (
+          <BodyCardTile key={project.id} project={project} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

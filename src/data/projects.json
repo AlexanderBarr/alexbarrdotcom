@@ -1,0 +1,59 @@
+{
+  "projects": [
+    {
+      "id": "approach-solutions",
+      "title": "APPROACH SOLUTIONS",
+      "image": "/ai_growingteams.png",
+      "startDate": "2021-07",
+      "endDate": "2024-07",
+      "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
+      "projectUrl": "https://www.growing-teams.com/"
+    },
+    {
+      "id": "data-viz-platform",
+      "title": "Garden Guru",
+      "image": "/ai_growingteams.png",
+      "startDate": "2023-06",
+      "endDate": "2023-09",
+      "description": "Created an interactive data visualization platform using D3.js and React, enabling users to generate insightful charts and graphs from complex datasets. Implemented real-time data updates and customizable visualization options.",
+      "projectUrl": "https://data-viz-platform.demo.com"
+    },
+    {
+      "id": "edit-essay",
+      "title": "Edit Essay",
+      "image": "/avatar.jpg",
+      "startDate": "2023-03",
+      "endDate": "2023-08",
+      "description": "Successfully migrated legacy systems to a modern cloud infrastructure, improving system reliability and reducing operational costs by 40%. Implemented automated deployment pipelines and monitoring solutions.",
+      "githubUrl": "https://github.com/example/cloud-migration",
+      "projectUrl": "https://cloud-migration.case-study.com"
+    },
+    {
+      "id": "CRDesign",
+      "title": "CRDesign",
+      "image": "/avatar.jpg",
+      "startDate": "2021-07",
+      "endDate": "2024-07",
+      "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
+      "projectUrl": "https://www.growing-teams.com/"
+    },
+    {
+      "id": "timthetiler",
+      "title": "Tim the Tiler",
+      "image": "/avatar.jpg",
+      "startDate": "2021-07",
+      "endDate": "2024-07",
+      "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
+      "projectUrl": "https://www.growing-teams.com/"
+    },
+    {
+      "id": "ambitioneducation",
+      "title": "Ambition Education",
+      "image": "/avatar.jpg",
+      "startDate": "2021-07",
+      "endDate": "2024-07",
+      "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
+      "projectUrl": "https://www.growing-teams.com/"
+    }
+  ]
+}
