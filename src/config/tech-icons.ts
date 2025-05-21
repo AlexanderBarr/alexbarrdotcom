@@ -1,4 +1,3 @@
-import { Code2, Database, Globe, Server, Laptop } from "lucide-react";
 import type { TechnologyIcon } from "~/types/tech-icons";
 
 export const techIcons: { [key: string]: TechnologyIcon } = {
@@ -286,25 +285,5 @@ export const techIcons: { [key: string]: TechnologyIcon } = {
     type: "svg",
     name: ".NET",
     icon: "/tech-icons/NET.svg",
-  },
-  Database: {
-    type: "lucide",
-    name: "Database",
-    icon: Database,
-  },
-  Web: {
-    type: "lucide",
-    name: "Web",
-    icon: Globe,
-  },
-  Server: {
-    type: "lucide",
-    name: "Server",
-    icon: Server,
-  },
-  Desktop: {
-    type: "lucide",
-    name: "Desktop",
-    icon: Laptop,
   },
 };

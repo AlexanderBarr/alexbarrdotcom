@@ -6,6 +6,7 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import { GithubIcon, ExternalLink, X } from "lucide-react";
+import Image from "next/image";
 import { cn } from "~/lib/utils";
 import { techIcons } from "~/config/tech-icons";
 
@@ -43,6 +44,7 @@ const DialogBodyContent = ({
       <div className="flex flex-col items-center gap-1">
         <div className="h-10 w-10">
           {typeof tech.icon === "string" ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
             <img src={tech.icon} alt={tech.name} className="h-full w-full" />
           ) : (
             <tech.icon className="h-full w-full" />
@@ -69,10 +71,11 @@ const DialogBodyContent = ({
       </DialogHeader>
       <div className="mt-4">
         <div className="relative aspect-video w-full overflow-hidden">
-          <img
+          <Image
             src={`/images${imageSrc}`}
             alt={title}
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
         {technologiesUsed && technologiesUsed.length > 0 && (

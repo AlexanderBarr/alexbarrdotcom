@@ -85,9 +85,7 @@
         "Sass",
         "Material UI",
         "Git",
-        "GitHub",
-        "Web",
-        "Database"
+        "GitHub"
       ]
     },
     {
@@ -130,9 +128,7 @@
         "REST API",
         "OAuth",
         "Git",
-        "GitHub",
-        "Web",
-        "Database"
+        "GitHub"
       ]
     },
     {
@@ -149,8 +145,7 @@
         "Azure SQL",
         "REST API",
         "Git",
-        "GitHub",
-        "Desktop"
+        "GitHub"
       ]
     },
     {
@@ -169,8 +164,7 @@
         "REST API",
         "Git",
         "GitHub",
-        "Desktop",
-        "Database"
+        "Desktop"
       ]
     }
   ]
