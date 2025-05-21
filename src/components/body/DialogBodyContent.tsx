@@ -7,6 +7,7 @@ import {
 import { Button } from "~/components/ui/button";
 import { GithubIcon, ExternalLink, X } from "lucide-react";
 import { cn } from "~/lib/utils";
+import { techIcons } from "~/config/tech-icons";
 
 export interface DialogBodyContentProps {
   title: string;
@@ -16,6 +17,7 @@ export interface DialogBodyContentProps {
   endDate: string;
   githubUrl?: string;
   projectUrl?: string;
+  technologiesUsed: string[];
 }
 
 const DialogBodyContent = ({
@@ -26,10 +28,29 @@ const DialogBodyContent = ({
   endDate,
   githubUrl,
   projectUrl,
+  technologiesUsed,
 }: DialogBodyContentProps) => {
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  };
+
+  const renderTechIcon = (techName: string) => {
+    const tech = techIcons[techName];
+    if (!tech) return null;
+
+    return (
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-10 w-10">
+          {typeof tech.icon === "string" ? (
+            <img src={tech.icon} alt={tech.name} className="h-full w-full" />
+          ) : (
+            <tech.icon className="h-full w-full" />
+          )}
+        </div>
+        <span className="text-xs text-gray-600">{tech.name}</span>
+      </div>
+    );
   };
 
   return (
@@ -54,6 +75,13 @@ const DialogBodyContent = ({
             className="h-full w-full object-cover"
           />
         </div>
+        {technologiesUsed && technologiesUsed.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-4 border-b border-gray-200 pb-4">
+            {technologiesUsed.map((tech, index) => (
+              <div key={index}>{renderTechIcon(tech)}</div>
+            ))}
+          </div>
+        )}
         <div className="mt-4 space-y-4">
           <p className="text-sm leading-6">{description}</p>
           <div className="flex gap-2 pt-2">

@@ -45,6 +45,7 @@ const BodyCardTile = ({ project }: BodyCardTileProps) => {
           endDate={project.endDate}
           githubUrl={project.githubUrl}
           projectUrl={project.projectUrl}
+          technologiesUsed={project.technologiesUsed || []}
         />
       </Dialog>
     </>

@@ -7,7 +7,64 @@
       "startDate": "2021-07",
       "endDate": "2024-07",
       "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
-      "projectUrl": "https://www.growing-teams.com/"
+      "projectUrl": "https://www.growing-teams.com/",
+      "technologiesUsed": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "React Native",
+        "Next.js",
+        "Redux",
+        "Tailwind",
+        "Jest",
+        "Node.js",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "REST API",
+        "OAuth",
+        "Docker",
+        "SAP HANA",
+        "Git",
+        "GitHub",
+        "GitHub Actions",
+        "Azure",
+        "Azure DevOps",
+        "Azure SQL",
+        "Jira",
+        "Teams",
+        "HTML",
+        "CSS",
+        "Sass",
+        "Material UI",
+        "ESLint",
+        "NPM",
+        "Linux",
+        "LaTeX",
+        "JSON",
+        "jQuery",
+        "Google Cloud",
+        "Flutter",
+        "Figma",
+        "Django",
+        "C++",
+        "C",
+        "C#",
+        "Apple",
+        "Angular",
+        "Android Studio",
+        "XML",
+        "WordPress",
+        "Vercel",
+        "Trello",
+        "Stack Overflow",
+        "SQL Developer",
+        "Slack",
+        "R",
+        "Powershell",
+        "Objective-C",
+        "NET"
+      ]
     },
     {
       "id": "data-viz-platform",
@@ -16,7 +73,22 @@
       "startDate": "2023-06",
       "endDate": "2023-09",
       "description": "Created an interactive data visualization platform using D3.js and React, enabling users to generate insightful charts and graphs from complex datasets. Implemented real-time data updates and customizable visualization options.",
-      "projectUrl": "https://data-viz-platform.demo.com"
+      "projectUrl": "https://data-viz-platform.demo.com",
+      "technologiesUsed": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "REST API",
+        "HTML",
+        "CSS",
+        "Sass",
+        "Material UI",
+        "Git",
+        "GitHub",
+        "Web",
+        "Database"
+      ]
     },
     {
       "id": "edit-essay",
@@ -26,7 +98,18 @@
       "endDate": "2023-08",
       "description": "Successfully migrated legacy systems to a modern cloud infrastructure, improving system reliability and reducing operational costs by 40%. Implemented automated deployment pipelines and monitoring solutions.",
       "githubUrl": "https://github.com/example/cloud-migration",
-      "projectUrl": "https://cloud-migration.case-study.com"
+      "projectUrl": "https://cloud-migration.case-study.com",
+      "technologiesUsed": [
+        "Python",
+        "Docker",
+        "Azure",
+        "Azure DevOps",
+        "GitHub Actions",
+        "MongoDB",
+        "REST API",
+        "OAuth",
+        "Server"
+      ]
     },
     {
       "id": "CRDesign",
@@ -35,7 +118,22 @@
       "startDate": "2021-07",
       "endDate": "2024-07",
       "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
-      "projectUrl": "https://www.growing-teams.com/"
+      "projectUrl": "https://www.growing-teams.com/",
+      "technologiesUsed": [
+        "Angular",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "Sass",
+        "Azure",
+        "Azure SQL",
+        "REST API",
+        "OAuth",
+        "Git",
+        "GitHub",
+        "Web",
+        "Database"
+      ]
     },
     {
       "id": "timthetiler",
@@ -44,7 +142,16 @@
       "startDate": "2021-07",
       "endDate": "2024-07",
       "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
-      "projectUrl": "https://www.growing-teams.com/"
+      "projectUrl": "https://www.growing-teams.com/",
+      "technologiesUsed": [
+        "C#",
+        "Azure",
+        "Azure SQL",
+        "REST API",
+        "Git",
+        "GitHub",
+        "Desktop"
+      ]
     },
     {
       "id": "ambitioneducation",
@@ -53,7 +160,18 @@
       "startDate": "2021-07",
       "endDate": "2024-07",
       "description": "A web and mobile application centering around payroll. Our business operations include rostering, performance monitoring, reporting, and auditing; all vital for efficiency and compliance. We also include billing, costing, and performance assessment.",
-      "projectUrl": "https://www.growing-teams.com/"
+      "projectUrl": "https://www.growing-teams.com/",
+      "technologiesUsed": [
+        "C++",
+        "Python",
+        "MySQL",
+        "SAP HANA",
+        "REST API",
+        "Git",
+        "GitHub",
+        "Desktop",
+        "Database"
+      ]
     }
   ]
 }

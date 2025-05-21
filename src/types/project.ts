@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   githubUrl?: string;
   projectUrl?: string;
+  technologiesUsed: string[];
 }
 
 export interface ProjectsData {
