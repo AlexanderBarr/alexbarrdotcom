@@ -3,7 +3,7 @@ import { Card } from "~/components/ui/card";
 import growingTeams from "~/assets/ai_growingteams2.png";
 import { Dialog } from "~/components/ui/dialog";
 import { useState } from "react";
-import DialogBodyContent from "~/app/_components/body/DialogBodyContent";
+import DialogBodyContent from "~/components/body/DialogBodyContent";
 
 const BodyCardTile = () => {
   const [isOpen, setIsOpen] = useState(false);

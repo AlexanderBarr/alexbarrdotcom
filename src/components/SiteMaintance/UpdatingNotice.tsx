@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MovingGridBackground from "./header/MovingGridBackground";
+import MovingGridBackground from "../../components/header/MovingGridBackground";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const targetDate = new Date("2025-06-01T12:00:00Z");

@@ -7,7 +7,7 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import ScreenSizeDebugger from "./ScreenSizeDebugger";
+import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
 
 const navItems = [
   { label: "projects", href: "/projects" },

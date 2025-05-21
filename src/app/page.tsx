@@ -1,8 +1,6 @@
-// app/page.tsx
-
-import Navbar from "./_components/Navbar";
-import AnimatedHeader from "./_components/header/AnimatedHeader";
-import Body from "./_components/body/Body";
+import AnimatedHeader from "../components/header/AnimatedHeader";
+import Body from "../components/body/Body";
+import Navbar from "~/components/navbar/Navbar";
 export const metadata = {
   title: "My Portfolio",
   description: "My developer portfolio",

@@ -2,7 +2,8 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import UpdatingNotice from "./_components/UpdatingNotice";
+import UpdatingNotice from "~/components/SiteMaintance/UpdatingNotice";
+// import UpdatingNotice from "./_components/UpdatingNotice";
 
 export const metadata: Metadata = {
   title: "alexbarr.com",
