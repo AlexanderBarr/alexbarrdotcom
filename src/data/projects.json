@@ -69,7 +69,7 @@
     {
       "id": "data-viz-platform",
       "title": "Garden Guru",
-      "image": "/ai_growingteams.png",
+      "image": "/garden_guru.jpg",
       "startDate": "2023-06",
       "endDate": "2023-09",
       "description": "Created an interactive data visualization platform using D3.js and React, enabling users to generate insightful charts and graphs from complex datasets. Implemented real-time data updates and customizable visualization options.",
@@ -91,7 +91,7 @@
     {
       "id": "edit-essay",
       "title": "Edit Essay",
-      "image": "/avatar.jpg",
+      "image": "/editessay.png",
       "startDate": "2023-03",
       "endDate": "2023-08",
       "description": "Successfully migrated legacy systems to a modern cloud infrastructure, improving system reliability and reducing operational costs by 40%. Implemented automated deployment pipelines and monitoring solutions.",
