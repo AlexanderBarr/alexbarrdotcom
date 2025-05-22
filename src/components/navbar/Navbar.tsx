@@ -9,6 +9,7 @@ import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { ThemeToggle } from "~/components/theme-toggle";
 import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "projects", href: "/projects" },
@@ -18,70 +19,91 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="border-border bg-background flex items-center justify-between border-b px-4 py-3 shadow-sm">
-      <Link
-        href="/"
-        className="text-foreground text-xl font-bold tracking-tight"
-      >
-        alexbarr
-      </Link>
+    <nav
+      className={cn(
+        "sticky top-0 z-50 border-b backdrop-blur-sm transition-all duration-200",
+        scrolled
+          ? "border-border/40 bg-background/80 shadow-sm"
+          : "bg-background/0 border-transparent",
+      )}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <Link
+          href="/"
+          className="text-foreground hover:text-foreground/80 text-xl font-bold tracking-tight transition-colors"
+        >
+          alexbarr
+        </Link>
 
-      {/* Centered ScreenSizeDebugger within the navbar */}
-      <div className="items-start justify-center md:flex md:flex-1">
-        <ScreenSizeDebugger />
-      </div>
+        {/* Centered ScreenSizeDebugger within the navbar */}
+        <div className="items-start justify-center md:flex md:flex-1">
+          <ScreenSizeDebugger />
+        </div>
 
-      {/* Desktop Navigation Links */}
-      <div className="hidden items-center gap-4 md:flex">
-        {navItems.map(({ label, href }) => (
-          <Link
-            key={href}
-            href={href}
-            className={cn(
-              "hover:text-primary text-sm font-medium transition-colors",
-              pathname === href ? "text-primary" : "text-muted-foreground",
-            )}
-          >
-            {label}
-          </Link>
-        ))}
-        <ThemeToggle />
-      </div>
+        {/* Desktop Navigation Links */}
+        <div className="hidden items-center gap-6 md:flex">
+          {navItems.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "hover:text-primary text-sm font-medium transition-colors",
+                pathname === href ? "text-primary" : "text-muted-foreground",
+              )}
+            >
+              {label}
+            </Link>
+          ))}
+          <ThemeToggle />
+        </div>
 
-      {/* Mobile Menu */}
-      <div className="flex items-center gap-2 md:hidden">
-        <ThemeToggle />
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="border-border bg-background p-4"
-          >
-            <DialogTitle className="text-foreground">menu</DialogTitle>
-            <div className="mt-6 flex flex-col gap-3">
-              {navItems.map(({ label, href }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    "hover:text-primary text-lg font-semibold transition-colors",
-                    pathname === href
-                      ? "text-primary"
-                      : "text-muted-foreground",
-                  )}
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </SheetContent>
-        </Sheet>
+        {/* Mobile Menu */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-9 w-9">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="border-border/40 bg-background/95 w-[80vw] p-6 backdrop-blur-sm"
+            >
+              <DialogTitle className="text-foreground text-lg font-semibold">
+                Menu
+              </DialogTitle>
+              <div className="mt-8 flex flex-col gap-4">
+                {navItems.map(({ label, href }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={cn(
+                      "hover:text-primary text-lg font-medium transition-colors",
+                      pathname === href
+                        ? "text-primary"
+                        : "text-muted-foreground",
+                    )}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );

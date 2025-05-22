@@ -1,16 +1,54 @@
 "use client";
 
+import { Github, Linkedin, Mail } from "lucide-react";
+
 export default function ProfileHeaderContent() {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center">
-      <h1 className="space-y-4 text-center">
-        <div className="text-foreground text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+    <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+      <h1 className="space-y-2 text-center sm:space-y-3">
+        <div className="text-foreground text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           Alex Barr
         </div>
-        <div className="text-muted-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+        <div className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl">
           I&apos;m a Full Stack Developer
         </div>
       </h1>
+      <div className="mt-4 flex gap-3 sm:mt-6 md:mt-8">
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center"
+          aria-label="GitHub Profile"
+        >
+          <div className="bg-background/80 hover:bg-background rounded-full p-2 shadow-md backdrop-blur-sm transition-all duration-200 group-hover:scale-105 md:p-2.5">
+            <Github className="h-4 w-4 md:h-5 md:w-5" />
+          </div>
+          <span className="sr-only">GitHub</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center"
+          aria-label="LinkedIn Profile"
+        >
+          <div className="bg-background/80 hover:bg-background rounded-full p-2 shadow-md backdrop-blur-sm transition-all duration-200 group-hover:scale-105 md:p-2.5">
+            <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
+          </div>
+          <span className="sr-only">LinkedIn</span>
+        </a>
+        <a
+          href="mailto:your.email@example.com"
+          className="group flex items-center"
+          aria-label="Email Contact"
+        >
+          <div className="bg-background/80 hover:bg-background rounded-full p-2 shadow-md backdrop-blur-sm transition-all duration-200 group-hover:scale-105 md:p-2.5">
+            <Mail className="h-4 w-4 md:h-5 md:w-5" />
+          </div>
+          <span className="sr-only">Email</span>
+        </a>
+      </div>
     </div>
   );
 }

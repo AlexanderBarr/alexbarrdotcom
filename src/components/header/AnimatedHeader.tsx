@@ -6,7 +6,7 @@ export default function AnimatedHeader() {
   return (
     <div className="relative">
       {/* Header section with background */}
-      <header className="bg-background relative min-h-[20rem] w-full overflow-hidden sm:h-[24rem] md:h-[30rem] lg:h-[36rem] xl:h-[42rem]">
+      <header className="bg-background relative min-h-[16rem] w-full overflow-hidden sm:h-[20rem] md:h-[24rem] lg:h-[28rem]">
         <MovingGridBackground />
         <ProfileHeaderContent />
       </header>
