@@ -53,7 +53,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
                 variant="secondary"
                 className="bg-background/50 backdrop-blur-sm"
               >
-                {techIcons[tech]?.name || tech}
+                {techIcons[tech]?.name ?? tech}
               </Badge>
             ))}
           </div>
