@@ -1,6 +1,5 @@
 import {
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogClose,
 } from "~/components/ui/dialog";
@@ -132,7 +131,7 @@ const DialogBodyContent = ({
       </div>
 
       {/* Footer Section */}
-      {(githubUrl || projectUrl) && (
+      {(githubUrl ?? projectUrl) && (
         <div className="bg-muted/10 flex flex-col gap-2 border-t p-6 sm:flex-row">
           {githubUrl && (
             <Button
