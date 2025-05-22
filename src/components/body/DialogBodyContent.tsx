@@ -4,6 +4,12 @@ import {
   DialogTitle,
   DialogClose,
 } from "~/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 import { Button } from "~/components/ui/button";
 import { GithubIcon, ExternalLink, X } from "lucide-react";
 import Image from "next/image";
@@ -41,7 +47,7 @@ const DialogBodyContent = ({
 
     return (
       <div className="flex flex-col items-center gap-1">
-        <div className="h-10 w-10">
+        <div className="h-8 w-8 sm:h-10 sm:w-10">
           {typeof tech.icon === "string" ? (
             <Image
               src={tech.icon}
@@ -60,65 +66,98 @@ const DialogBodyContent = ({
   };
 
   return (
-    <DialogContent className="bg-background sm:max-w-[625px]">
-      <DialogHeader>
-        <DialogClose className="data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 opacity-50 transition-opacity hover:opacity-100 disabled:pointer-events-none">
-          <X className="h-5 w-5" />
-          <span className="sr-only">Close</span>
+    <DialogContent className="bg-background fixed top-[50%] left-[50%] w-[95vw] max-w-[500px] translate-x-[-50%] translate-y-[-50%] rounded-lg border p-0 shadow-lg sm:w-[85vw] sm:max-w-[700px]">
+      {/* Header Section */}
+      <div className="relative h-[30vh] min-h-[200px] w-full overflow-hidden rounded-t-lg sm:h-[35vh]">
+        <Image
+          src={`/images${imageSrc}`}
+          alt={title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="from-background via-background/40 absolute inset-0 bg-gradient-to-t to-transparent" />
+
+        <DialogClose className="bg-background/80 absolute top-4 right-4 z-10 rounded-full p-2 opacity-70 backdrop-blur-sm transition-opacity hover:opacity-100">
+          <X className="h-4 w-4" />
         </DialogClose>
-        <DialogTitle className="text-foreground text-2xl font-bold">
-          {title}
-        </DialogTitle>
-        <div className="space-y-4">
-          <p className="text-muted-foreground text-sm">
+
+        <div className="text-foreground absolute bottom-0 w-full p-6">
+          <DialogTitle className="text-xl leading-tight font-bold sm:text-2xl">
+            {title}
+          </DialogTitle>
+          <p className="text-muted-foreground mt-1.5 text-sm">
             {formatDate(startDate)} - {formatDate(endDate)}
           </p>
         </div>
-      </DialogHeader>
-      <div className="mt-4">
-        <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={`/images${imageSrc}`}
-            alt={title}
-            fill
-            className="object-cover"
-          />
-        </div>
-        {technologiesUsed && technologiesUsed.length > 0 && (
-          <div className="border-border mt-4 flex flex-wrap gap-4 border-b pb-4">
-            {technologiesUsed.map((tech, index) => (
-              <div key={index}>{renderTechIcon(tech)}</div>
-            ))}
-          </div>
-        )}
-        <div className="mt-4 space-y-4">
-          <p className="text-foreground text-sm leading-6">{description}</p>
-          <div className="flex gap-2 pt-2">
-            {githubUrl && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-2"
-                onClick={() => window.open(githubUrl, "_blank")}
+      </div>
+
+      {/* Content Section */}
+      <div className="custom-scrollbar max-h-[60vh] overflow-y-auto">
+        <div className="space-y-4 p-6">
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            <AccordionItem
+              value="description"
+              className="rounded-md border px-4"
+            >
+              <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline sm:text-base">
+                Project Description
+              </AccordionTrigger>
+              <AccordionContent className="pt-1 pb-3">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {description}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            {technologiesUsed && technologiesUsed.length > 0 && (
+              <AccordionItem
+                value="technologies"
+                className="rounded-md border px-4"
               >
-                <GithubIcon className="h-4 w-4" />
-                View on GitHub
-              </Button>
+                <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline sm:text-base">
+                  Technologies Used
+                </AccordionTrigger>
+                <AccordionContent className="pt-1 pb-3">
+                  <div className="flex flex-wrap gap-4">
+                    {technologiesUsed.map((tech, index) => (
+                      <div key={index}>{renderTechIcon(tech)}</div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             )}
-            {projectUrl && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-2"
-                onClick={() => window.open(projectUrl, "_blank")}
-              >
-                <ExternalLink className="h-4 w-4" />
-                View Project
-              </Button>
-            )}
-          </div>
+          </Accordion>
         </div>
       </div>
+
+      {/* Footer Section */}
+      {(githubUrl || projectUrl) && (
+        <div className="bg-muted/10 flex flex-col gap-2 border-t p-6 sm:flex-row">
+          {githubUrl && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full gap-2 sm:w-auto"
+              onClick={() => window.open(githubUrl, "_blank")}
+            >
+              <GithubIcon className="h-4 w-4" />
+              View on GitHub
+            </Button>
+          )}
+          {projectUrl && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full gap-2 sm:w-auto"
+              onClick={() => window.open(projectUrl, "_blank")}
+            >
+              <ExternalLink className="h-4 w-4" />
+              View Project
+            </Button>
+          )}
+        </div>
+      )}
     </DialogContent>
   );
 };

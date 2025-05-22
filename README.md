@@ -29,6 +29,12 @@
   - [ ] fix shadow effect on project tiles
   - [ ] remove dummy text from project information
 
+###
+
+- [ ] Black dark mode is too black
+      on dark mode, some of the icons are invisibile because obviously.
+      4k screen considerations?
+
 ### Mobile Optimisation
 
 - [ ] Improve Mobile Layout
