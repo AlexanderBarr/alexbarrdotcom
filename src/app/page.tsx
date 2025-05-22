@@ -1,7 +1,7 @@
 import AnimatedHeader from "../components/header/AnimatedHeader";
 import Body from "../components/body/Body";
 import Navbar from "~/components/navbar/Navbar";
-import { ScrollToTop } from "~/components/ui/scroll-to-top";
+// import { ScrollToTop } from "~/components/ui/scroll-to-top";
 
 export const metadata = {
   title: "My Portfolio",
@@ -16,7 +16,7 @@ export default function Home() {
       <div className="mt-16 md:mt-20 lg:mt-24">
         <Body />
       </div>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </main>
   );
 }

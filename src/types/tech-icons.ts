@@ -6,13 +6,11 @@ export type LucideTechIcon = {
   icon: LucideIcon;
 };
 
-export type SvgTechIcon = {
+export interface TechnologyIcon {
   type: "svg";
   name: string;
   icon: string;
-};
-
-export type TechnologyIcon = LucideTechIcon | SvgTechIcon;
+}
 
 export type Technology = {
   name: string;

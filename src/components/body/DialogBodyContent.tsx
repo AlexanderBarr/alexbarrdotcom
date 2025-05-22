@@ -56,7 +56,7 @@ const DialogBodyContent = ({
               height={40}
             />
           ) : (
-            <tech.icon className="h-full w-full" />
+            <></>
           )}
         </div>
         <span className="text-muted-foreground text-xs">{tech.name}</span>
@@ -94,7 +94,7 @@ const DialogBodyContent = ({
       {/* Content Section */}
       <div className="custom-scrollbar max-h-[60vh] overflow-y-auto">
         <div className="space-y-4 p-6">
-          <Accordion type="single" collapsible className="w-full space-y-2">
+          <Accordion type="single" collapsible className="mb- w-full space-y-2">
             <AccordionItem
               value="description"
               className="rounded-md border px-4"

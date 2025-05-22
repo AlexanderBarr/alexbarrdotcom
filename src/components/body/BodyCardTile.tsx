@@ -8,7 +8,6 @@ import { Badge } from "~/components/ui/badge";
 import { techIcons } from "~/config/tech-icons";
 import Image from "next/image";
 import { cn } from "~/lib/utils";
-import { ArrowUpRight } from "lucide-react";
 
 interface BodyCardTileProps {
   project: Project;
@@ -25,65 +24,123 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
     <>
       <Card
         className={cn(
-          "group relative cursor-pointer overflow-hidden border shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+          "group relative cursor-pointer overflow-hidden border-0 shadow-md",
           featured ? "aspect-[21/9]" : "aspect-[16/10]",
         )}
         onClick={() => setIsOpen(true)}
       >
         {/* Project Image */}
-        <div className="absolute inset-0 bg-black/20">
+        <div className="absolute inset-0">
           <Image
             src={`/images${project.image}`}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.02]"
+            className={cn(
+              "object-cover transition-transform duration-700 will-change-transform",
+              featured
+                ? "scale-[1.01] group-hover:scale-[1.03]"
+                : "group-hover:scale-[1.02]",
+            )}
           />
         </div>
 
-        {/* Overlay Gradient */}
-        <div className="from-background/90 via-background/30 absolute inset-0 bg-gradient-to-t to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-90" />
+        {/* Overlay */}
+        <div
+          className={cn(
+            "absolute inset-0",
+            featured
+              ? [
+                  "bg-gradient-to-t from-black/90 via-black/50 to-black/20",
+                  // Add a solid black bottom edge to prevent corner aliasing
+                  "after:absolute after:right-0 after:bottom-0 after:left-0 after:h-8 after:bg-gradient-to-t after:from-black after:to-transparent",
+                ].join(" ")
+              : "bg-black/40 transition-colors duration-300 group-hover:bg-black/60",
+          )}
+        />
 
         {/* Content */}
         <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-          {/* Tech Badges */}
-          <div className="mb-3 flex translate-y-4 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            {displayTechnologies.map((tech) => (
-              <Badge
-                key={tech}
-                variant="secondary"
-                className="bg-background/50 backdrop-blur-sm"
-              >
-                {techIcons[tech]?.name ?? tech}
-              </Badge>
-            ))}
+          {/* Mobile-only tech badges */}
+          <div className="mb-3 flex flex-wrap gap-2 sm:hidden">
+            {displayTechnologies.map((tech) => {
+              const techIcon = techIcons[tech];
+              if (!techIcon) return null;
+
+              return (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="relative isolate flex items-center overflow-hidden rounded-none p-1"
+                >
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+                  <div className="absolute inset-0 ring-1 ring-white/10" />
+                  {/* Container to properly scale and contain the icon */}
+                  <div className="relative flex h-4 w-4 items-center justify-center">
+                    <div className="relative flex h-4 w-4 items-center justify-center">
+                      <Image
+                        src={techIcon.icon}
+                        alt={techIcon.name}
+                        width={20}
+                        height={20}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                  </div>
+                </Badge>
+              );
+            })}
+          </div>
+
+          {/* Desktop-only tech badges */}
+          <div className="mb-3 hidden translate-y-4 flex-wrap gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:flex">
+            {displayTechnologies.map((tech) => {
+              const techIcon = techIcons[tech];
+              if (!techIcon) return null;
+
+              return (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="relative isolate flex items-center gap-2 overflow-hidden rounded-sm px-3 py-1 text-sm"
+                >
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+                  <div className="absolute inset-0 ring-1 ring-white/10" />
+                  <div className="relative flex items-center gap-2">
+                    <Image
+                      src={techIcon.icon}
+                      alt={techIcon.name}
+                      width={16}
+                      height={16}
+                      className="h-4 w-4 object-contain"
+                    />
+                    <span className="text-foreground">{techIcon.name}</span>
+                  </div>
+                </Badge>
+              );
+            })}
           </div>
 
           {/* Title */}
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="relative w-full">
-              <span
-                className={cn(
-                  "text-foreground group-hover:text-primary inline-block leading-tight font-bold transition-colors",
-                  featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl",
-                )}
-              >
-                {project.title}
-              </span>
-            </h3>
-            <ArrowUpRight className="h-6 w-6 flex-shrink-0 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
-          </div>
+          <h3 className="relative">
+            <span
+              className={cn(
+                "inline-block leading-tight font-bold",
+                "text-white transition-colors",
+                featured
+                  ? "text-xl sm:text-3xl"
+                  : "sm:group-hover:text-primary text-xl sm:text-2xl",
+              )}
+            >
+              {project.title}
+            </span>
+          </h3>
 
-          {/* Description Preview */}
+          {/* Description - Featured projects only */}
           {featured && (
-            <p className="text-muted-foreground group-hover:text-foreground mt-2 line-clamp-2 text-sm transition-opacity duration-300 sm:text-base">
+            <p className="mt-2 line-clamp-2 text-base text-white/90">
               {project.description}
             </p>
           )}
-
-          {/* Interaction Hint */}
-          <div className="bg-background/50 absolute top-4 right-4 rounded-full p-2 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
-            <span className="text-xs font-medium">Click to View</span>
-          </div>
         </div>
       </Card>
 

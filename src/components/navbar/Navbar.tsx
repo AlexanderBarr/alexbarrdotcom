@@ -66,12 +66,12 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         {/* Mobile Menu */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="h-9 w-9">
