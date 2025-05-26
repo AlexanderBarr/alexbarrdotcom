@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     canonical: "https://alexbarr.com.au",
   },
   icons: [
-    { rel: "icon", url: "/favicon.ico" },
-    { rel: "apple-touch-icon", url: "/favicon.ico" },
+    { rel: "icon", url: "/logo.png" },
+    { rel: "apple-touch-icon", url: "/logo.png" },
   ],
   manifest: "/manifest.json",
   category: "technology",
