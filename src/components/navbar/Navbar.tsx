@@ -12,7 +12,7 @@ import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "projects", href: "/projects" },
+  { label: "projects", href: "#projects" },
   { label: "about", href: "/about" },
   { label: "contact", href: "/contact" },
 ];
@@ -39,18 +39,18 @@ export default function Navbar() {
           : "bg-background/0 border-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link
+      <div className="flex h-16 max-w-screen items-center justify-center sm:px-6">
+        {/* <Link
           href="/"
           className="text-foreground hover:text-foreground/80 text-xl font-bold tracking-tight transition-colors"
         >
           alexbarr
-        </Link>
+        </Link> */}
 
         {/* Centered ScreenSizeDebugger within the navbar */}
-        <div className="items-start justify-center md:flex md:flex-1">
+        {/* <div className="items-start justify-center md:flex md:flex-1">
           <ScreenSizeDebugger />
-        </div>
+        </div> */}
 
         {/* Desktop Navigation Links */}
         <div className="hidden items-center gap-6 md:flex">

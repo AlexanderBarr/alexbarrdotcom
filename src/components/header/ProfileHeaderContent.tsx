@@ -9,13 +9,13 @@ export default function ProfileHeaderContent() {
         <div className="text-foreground text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           Alex Barr
         </div>
-        <div className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-          I&apos;m a Full Stack Developer
+        <div className="text-foreground text-xl opacity-70 sm:text-2xl md:text-3xl lg:text-4xl">
+          I&apos;m a Full Stack Developer based in Sydney, Australia
         </div>
       </h1>
       <div className="mt-4 flex gap-3 sm:mt-6 md:mt-8">
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/AlexanderBarr"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center"
@@ -27,7 +27,7 @@ export default function ProfileHeaderContent() {
           <span className="sr-only">GitHub</span>
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/alex-b-950725113/"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center"
@@ -39,7 +39,7 @@ export default function ProfileHeaderContent() {
           <span className="sr-only">LinkedIn</span>
         </a>
         <a
-          href="mailto:your.email@example.com"
+          href="mailto:business@alexbarr.com"
           className="group flex items-center"
           aria-label="Email Contact"
         >
