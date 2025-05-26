@@ -39,7 +39,7 @@ export default function ProfileHeaderContent() {
           <span className="sr-only">LinkedIn</span>
         </a>
         <a
-          href="mailto:business@alexbarr.com"
+          href="mailto:business@alexbarr.com.au"
           className="group flex items-center"
           aria-label="Email Contact"
         >

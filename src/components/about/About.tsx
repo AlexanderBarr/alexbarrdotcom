@@ -54,7 +54,7 @@ const About = () => {
     },
     {
       icon: Mail,
-      href: "mailto:business@alexbarr.com",
+      href: "mailto:business@alexbarr.com.au",
       label: "Email Contact",
       text: "Email",
     },
@@ -147,6 +147,7 @@ const About = () => {
                       src={image.src}
                       alt={image.alt}
                       fill
+                      priority={index === 0}
                       className="rounded-lg object-cover shadow-md"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />

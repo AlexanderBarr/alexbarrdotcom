@@ -7,8 +7,6 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
-// import { ThemeToggle } from "~/components/theme-toggle";
-// import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
 import { useEffect, useState } from "react";
 import { ContactDialog } from "~/components/contact/ContactDialog";
 
@@ -63,18 +61,6 @@ export default function Navbar() {
         )}
       >
         <div className="flex h-16 max-w-screen items-center justify-center sm:px-6">
-          {/* <Link
-            href="/"
-            className="text-foreground hover:text-foreground/80 text-xl font-bold tracking-tight transition-colors"
-          >
-            alexbarr
-          </Link> */}
-
-          {/* Centered ScreenSizeDebugger within the navbar */}
-          {/* <div className="items-start justify-center md:flex md:flex-1">
-            <ScreenSizeDebugger />
-          </div> */}
-
           {/* Desktop Navigation Links */}
           <div className="hidden items-center gap-6 md:flex">
             {navItems.map(({ label, href }) => (
@@ -93,12 +79,10 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
-            {/* <ThemeToggle /> */}
           </div>
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-2 md:hidden">
-            {/* <ThemeToggle /> */}
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-9 w-9">

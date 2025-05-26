@@ -1,0 +1,20 @@
+{
+  "name": "Alex Barr - Full Stack Developer",
+  "short_name": "Alex Barr",
+  "description": "Experienced Full Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "productivity", "developer"],
+  "lang": "en",
+  "dir": "ltr"
+}
