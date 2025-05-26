@@ -72,7 +72,7 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-muted-foreground text-base leading-relaxed">
-                I`&apos;`m Alex, a passionate Full Stack Developer based in
+                I&apos;m Alex, a passionate Full Stack Developer based in
                 Sydney, Australia, with extensive experience in building
                 scalable web and mobile applications. My expertise spans from
                 enterprise payroll systems to innovative gardening apps,
@@ -80,21 +80,20 @@ const About = () => {
               </p>
 
               <p className="text-muted-foreground text-base leading-relaxed">
-                Over the years, I`&apos;`ve worked with cutting-edge
-                technologies including TypeScript, React, Next.js, and various
-                database systems. My experience ranges from developing
-                comprehensive business solutions with complex rostering and
-                performance monitoring systems to creating user-friendly
-                educational and design websites.
+                Over the years, I&apos;ve worked with cutting-edge technologies
+                including TypeScript, React, Next.js, and various database
+                systems. My experience ranges from developing comprehensive
+                business solutions with complex rostering and performance
+                monitoring systems to creating user-friendly educational and
+                design websites.
               </p>
 
               <p className="text-muted-foreground text-base leading-relaxed">
                 I specialise in modern web technologies, cloud platforms like
                 Azure, and have a strong background in both frontend and backend
-                development. Whether it`&apos;`s building React Native mobile
-                apps or implementing complex database architectures with SAP
-                HANA and PostgreSQL, I bring technical excellence to every
-                project.
+                development. Whether it&apos;s building React Native mobile apps
+                or implementing complex database architectures with SAP HANA and
+                PostgreSQL, I bring technical excellence to every project.
               </p>
 
               <div className="bg-primary/10 border-primary/20 mt-10 rounded-lg border p-4">
@@ -109,7 +108,7 @@ const About = () => {
             {/* Contact Links */}
             <div className="space-y-4">
               <h3 className="text-foreground text-lg font-semibold">
-                Let`&apos;`s Connect
+                Let&apos;s Connect
               </h3>
               <div className="flex flex-wrap gap-3">
                 {contactLinks.map(({ icon: Icon, href, label, text }) => (
