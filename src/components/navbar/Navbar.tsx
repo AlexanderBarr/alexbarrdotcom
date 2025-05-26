@@ -22,7 +22,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
-  const projectsRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
