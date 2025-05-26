@@ -52,16 +52,18 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      const result = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
+
+      if (result.success) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
         onOpenChange(false);
       } else {
-        const errorData = await response.json();
         setStatus("error");
-        setError(
-          errorData.error || "Unable to send message. Please try again.",
-        );
+        setError(result.error ?? "Unable to send message. Please try again.");
       }
     } catch (error) {
       setStatus("error");
@@ -91,7 +93,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
         <DialogHeader>
           <DialogTitle>Contact Me</DialogTitle>
           <DialogDescription>
-            Send me a message and I'll get back to you soon.
+            Send me a message and I&apos;ll get back to you soon.
           </DialogDescription>
         </DialogHeader>
 

@@ -9,7 +9,7 @@ import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
 // import { ThemeToggle } from "~/components/theme-toggle";
 // import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ContactDialog } from "~/components/contact/ContactDialog";
 
 const navItems = [
