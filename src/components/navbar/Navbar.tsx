@@ -36,6 +36,19 @@ export default function Navbar() {
     projectsSection?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleAboutClick = () => {
+    const aboutSection = document.getElementById("about");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleNavClick = (href: string) => {
+    if (href === "projects") {
+      handleProjectsClick();
+    } else if (href === "about") {
+      handleAboutClick();
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -66,9 +79,7 @@ export default function Navbar() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (href === "projects") {
-                  handleProjectsClick();
-                }
+                handleNavClick(href);
               }}
               className={cn(
                 "hover:text-primary text-sm font-medium transition-colors",
@@ -104,9 +115,7 @@ export default function Navbar() {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      if (href === "projects") {
-                        handleProjectsClick();
-                      }
+                      handleNavClick(href);
                     }}
                     className={cn(
                       "hover:text-primary text-lg font-medium transition-colors",

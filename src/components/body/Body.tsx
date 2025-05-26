@@ -1,5 +1,6 @@
 import { getAllProjects } from "~/lib/projects";
 import BodyCardTile from "./BodyCardTile";
+import About from "~/components/about/About";
 import type { Project } from "~/types/project";
 
 const Body = () => {
@@ -40,6 +41,9 @@ const Body = () => {
           </div>
         </div>
       </div>
+
+      {/* About Section */}
+      <About />
     </div>
   );
 };
