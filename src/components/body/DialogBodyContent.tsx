@@ -92,47 +92,53 @@ const DialogBodyContent = ({
       </div>
 
       {/* Content Section */}
-      <div className="custom-scrollbar max-h-[60vh] overflow-y-auto">
-        <div className="space-y-4 p-6">
-          <Accordion type="single" collapsible className="mb- w-full space-y-2">
-            <AccordionItem
-              value="description"
-              className="rounded-md border px-4"
+      <div className="max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          <div className="space-y-4">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full space-y-2 border-none"
             >
-              <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline sm:text-base">
-                Project Description
-              </AccordionTrigger>
-              <AccordionContent className="pt-1 pb-3">
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {description}
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            {technologiesUsed && technologiesUsed.length > 0 && (
               <AccordionItem
-                value="technologies"
-                className="rounded-md border px-4"
+                value="description"
+                className="border-border overflow-hidden rounded-md border"
               >
-                <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline sm:text-base">
-                  Technologies Used
+                <AccordionTrigger className="hover:bg-accent/50 px-4 py-3 text-left font-medium transition-colors duration-200">
+                  Project Description
                 </AccordionTrigger>
-                <AccordionContent className="pt-1 pb-3">
-                  <div className="flex flex-wrap gap-4">
-                    {technologiesUsed.map((tech, index) => (
-                      <div key={index}>{renderTechIcon(tech)}</div>
-                    ))}
-                  </div>
+                <AccordionContent className="px-4 pt-2 pb-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {description}
+                  </p>
                 </AccordionContent>
               </AccordionItem>
-            )}
-          </Accordion>
+
+              {technologiesUsed && technologiesUsed.length > 0 && (
+                <AccordionItem
+                  value="technologies"
+                  className="border-border overflow-hidden rounded-md border"
+                >
+                  <AccordionTrigger className="hover:bg-accent/50 px-4 py-3 text-left font-medium transition-colors duration-200">
+                    Technologies Used
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pt-2 pb-4">
+                    <div className="flex flex-wrap gap-4">
+                      {technologiesUsed.map((tech, index) => (
+                        <div key={index}>{renderTechIcon(tech)}</div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+            </Accordion>
+          </div>
         </div>
       </div>
 
       {/* Footer Section */}
       {(githubUrl ?? projectUrl) && (
-        <div className="bg-muted/10 flex flex-col gap-2 border-t p-6 sm:flex-row">
+        <div className="flex flex-col gap-2 p-6 sm:flex-row">
           {githubUrl && (
             <Button
               variant="outline"

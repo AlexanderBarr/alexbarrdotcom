@@ -24,7 +24,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
     <>
       <Card
         className={cn(
-          "group relative cursor-pointer overflow-hidden border-0 shadow-md",
+          "group relative cursor-pointer overflow-hidden rounded-lg border-0 shadow-md",
           featured ? "aspect-[21/9]" : "aspect-[16/10]",
         )}
         onClick={() => setIsOpen(true)}
@@ -40,6 +40,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
               featured
                 ? "scale-[1.01] group-hover:scale-[1.03]"
                 : "group-hover:scale-[1.02]",
+              "overflow-hidden rounded-lg",
             )}
           />
         </div>
@@ -49,11 +50,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
           className={cn(
             "absolute inset-0",
             featured
-              ? [
-                  "bg-gradient-to-t from-black/90 via-black/50 to-black/20",
-                  // Add a solid black bottom edge to prevent corner aliasing
-                  "after:absolute after:right-0 after:bottom-0 after:left-0 after:h-8 after:bg-gradient-to-t after:from-black after:to-transparent",
-                ].join(" ")
+              ? "bg-black/40 transition-colors duration-300 group-hover:bg-black/60"
               : "bg-black/40 transition-colors duration-300 group-hover:bg-black/60",
           )}
         />
@@ -137,7 +134,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
 
           {/* Description - Featured projects only */}
           {featured && (
-            <p className="mt-2 line-clamp-2 text-base text-white/90">
+            <p className="mt-2 line-clamp-2 rounded-md bg-black/40 px-2 py-1 text-base text-white">
               {project.description}
             </p>
           )}
