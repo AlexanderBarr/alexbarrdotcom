@@ -1,5 +1,6 @@
 import { getAllProjects } from "~/lib/projects";
 import BodyCardTile from "./BodyCardTile";
+import type { Project } from "~/types/project";
 
 const Body = () => {
   const projects = getAllProjects();
@@ -33,32 +34,12 @@ const Body = () => {
                 <BodyCardTile project={featuredProject} />
               </div>
             )}
-            {otherProjects.map((project) => (
+            {otherProjects.map((project: Project) => (
               <BodyCardTile key={project.id} project={project} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* About Me Section */}
-      {/* <div className="space-y-4" id="about">
-        <h2 className="text-foreground text-2xl font-bold sm:text-3xl">
-          About Me
-        </h2>
-        <div className="prose dark:prose-invert max-w-prose">
-          <p>
-            I'm a passionate software developer with a keen interest in creating
-            innovative and user-friendly web applications. My expertise spans
-            full-stack development, with a focus on modern web technologies like
-            React, Next.js, and TypeScript.
-          </p>
-          <p>
-            When I'm not coding, I enjoy exploring new technologies,
-            contributing to open-source projects, and continuously expanding my
-            skill set to solve complex technical challenges.
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };

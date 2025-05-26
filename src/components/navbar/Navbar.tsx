@@ -7,19 +7,20 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { ThemeToggle } from "~/components/theme-toggle";
-import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
-import { useEffect, useState } from "react";
+// import { ThemeToggle } from "~/components/theme-toggle";
+// import ScreenSizeDebugger from "../SiteMaintance/ScreenSizeDebugger";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
-  { label: "projects", href: "#projects" },
-  { label: "about", href: "/about" },
-  { label: "contact", href: "/contact" },
+  { label: "projects", href: "projects" },
+  { label: "about", href: "about" },
+  { label: "contact", href: "contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const projectsRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,11 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleProjectsClick = () => {
+    const projectsSection = document.getElementById("projects");
+    projectsSection?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <nav
@@ -57,7 +63,13 @@ export default function Navbar() {
           {navItems.map(({ label, href }) => (
             <Link
               key={href}
-              href={href}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                if (href === "projects") {
+                  handleProjectsClick();
+                }
+              }}
               className={cn(
                 "hover:text-primary text-sm font-medium transition-colors",
                 pathname === href ? "text-primary" : "text-muted-foreground",
@@ -89,7 +101,13 @@ export default function Navbar() {
                 {navItems.map(({ label, href }) => (
                   <Link
                     key={href}
-                    href={href}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (href === "projects") {
+                        handleProjectsClick();
+                      }
+                    }}
                     className={cn(
                       "hover:text-primary text-lg font-medium transition-colors",
                       pathname === href

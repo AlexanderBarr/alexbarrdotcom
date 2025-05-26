@@ -10,7 +10,7 @@ export default function ProfileHeaderContent() {
           Alex Barr
         </div>
         <div className="text-foreground text-xl opacity-70 sm:text-2xl md:text-3xl lg:text-4xl">
-          I&apos;m a Full Stack Developer based in Sydney, Australia
+          A Full Stack Developer based in Sydney, Australia
         </div>
       </h1>
       <div className="mt-4 flex gap-3 sm:mt-6 md:mt-8">
