@@ -9,11 +9,11 @@ export default function ProfileHeaderContent() {
         <div className="text-foreground text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           Alex Barr
         </div>
-        <div className="text-foreground text-xl opacity-70 sm:text-2xl md:text-3xl lg:text-4xl">
+        <div className="text-xl text-white opacity-80 sm:text-2xl md:text-3xl lg:text-4xl">
           A Full Stack Developer based in Sydney, Australia
         </div>
       </h1>
-      <div className="mt-4 flex gap-3 sm:mt-6 md:mt-8">
+      <div className="mt-1 flex gap-3 sm:mt-6 md:mt-8">
         <a
           href="https://github.com/AlexanderBarr"
           target="_blank"

@@ -35,7 +35,7 @@
       "startDate": "2025-01",
       "endDate": "2025-05",
       "description": "Garden Guru is a comprehensive gardening app designed to assist both novice and experienced gardeners in planning, planting, and maintaining their gardens. The app offers expert advice on growing conditions, diagnosing plant ailments, and organic gardening practices.",
-      "githubUrl": "https://github.com/AlexanderBarr/gardenguru/",
+
       "technologiesUsed": [
         "TypeScript",
         "Next.js",
@@ -63,7 +63,6 @@
       "startDate": "2019-03",
       "endDate": "2019-04",
       "description": "Essay Check is a professional editing website that helps writers perfect their work—whether it's an essay, novel, thesis, or article. With a team of experienced human editors, Essay Check focuses on improving clarity, grammar, structure, and overall readability, ensuring your writing is polished, professional, and ready to impress.",
-      "projectUrl": "https://essaycheck.com.au",
       "technologiesUsed": ["WordPress", "JavaScript"]
     },
     {
@@ -83,7 +82,6 @@
       "startDate": "2019-10",
       "endDate": "2019-11",
       "description": "Tim the tiler is a trusted tiling company known for precision, reliability, and top-quality craftsmanship. Serving Penrith and surrounding areas, Tim the tiler specializes in residential and commercial tiling projects—ranging from kitchens and bathrooms to outdoor spaces. With a keen eye for detail and a commitment to excellence, they turn surfaces into standout features that last.",
-      "projectUrl": "https://timthetiler.com.au/",
       "technologiesUsed": ["WordPress", "JavaScript"]
     }
   ]

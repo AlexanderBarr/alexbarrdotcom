@@ -62,7 +62,7 @@ export default function Navbar() {
       >
         <div className="flex h-16 max-w-screen items-center justify-center sm:px-6">
           {/* Desktop Navigation Links */}
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="flex items-center gap-6">
             {navItems.map(({ label, href }) => (
               <Link
                 key={href}
@@ -72,52 +72,13 @@ export default function Navbar() {
                   handleNavClick(href);
                 }}
                 className={cn(
-                  "hover:text-primary text-sm font-medium transition-colors",
+                  "hover:text-primary text-sm font-medium text-white transition-colors",
                   pathname === href ? "text-primary" : "text-muted-foreground",
                 )}
               >
                 {label}
               </Link>
             ))}
-          </div>
-
-          {/* Mobile Menu */}
-          <div className="flex items-center gap-2 md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-9 w-9">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="border-border/40 bg-background/95 w-[80vw] p-6 backdrop-blur-sm"
-              >
-                <DialogTitle className="text-foreground text-lg font-semibold">
-                  Menu
-                </DialogTitle>
-                <div className="mt-8 flex flex-col gap-4">
-                  {navItems.map(({ label, href }) => (
-                    <Link
-                      key={href}
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(href);
-                      }}
-                      className={cn(
-                        "hover:text-primary text-lg font-medium transition-colors",
-                        pathname === href
-                          ? "text-primary"
-                          : "text-muted-foreground",
-                      )}
-                    >
-                      {label}
-                    </Link>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
       </nav>

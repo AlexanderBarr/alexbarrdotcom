@@ -55,6 +55,10 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
           )}
         />
 
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 will-change-transform" />
+        </div>
+
         {/* Content */}
         <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
           {/* Mobile-only tech badges */}
@@ -134,7 +138,7 @@ const BodyCardTile = ({ project, featured = false }: BodyCardTileProps) => {
 
           {/* Description - Featured projects only */}
           {featured && (
-            <p className="mt-2 line-clamp-2 rounded-md bg-black/40 px-2 py-1 text-base text-white">
+            <p className="mt-2 line-clamp-2 rounded-md py-1 text-base text-white">
               {project.description}
             </p>
           )}

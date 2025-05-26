@@ -75,7 +75,9 @@ const DialogBodyContent = ({
           className="object-cover"
           priority
         />
-        <div className="from-background via-background/40 absolute inset-0 bg-gradient-to-t to-transparent" />
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 will-change-transform" />
+        </div>
 
         <DialogClose className="bg-background/80 absolute top-4 right-4 z-10 rounded-full p-2 opacity-70 backdrop-blur-sm transition-opacity hover:opacity-100">
           <X className="h-4 w-4" />
@@ -85,7 +87,7 @@ const DialogBodyContent = ({
           <DialogTitle className="text-xl leading-tight font-bold sm:text-2xl">
             {title}
           </DialogTitle>
-          <p className="text-muted-foreground mt-1.5 text-sm">
+          <p className="mt-1.5 text-sm text-white">
             {formatDate(startDate)} - {formatDate(endDate)}
           </p>
         </div>

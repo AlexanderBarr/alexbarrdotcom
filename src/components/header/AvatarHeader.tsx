@@ -6,7 +6,7 @@ const AvatarHeader: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center">
       <div className="mx-auto -mt-16 flex justify-center md:-mt-20 lg:-mt-24">
-        <Avatar className="border-background bg-background h-32 w-32 border-4 shadow-xl md:h-40 md:w-40 lg:h-48 lg:w-48">
+        <Avatar className="border-background bg-background h-32 w-32 border-4 shadow-xl md:h-48 md:w-48 lg:h-56 lg:w-56">
           <AvatarImage
             src={avatar.src}
             alt="Avatar"
