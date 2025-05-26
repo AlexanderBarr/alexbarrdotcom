@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://alexbarr.com",
+    url: "https://alexbarr.com.au",
     siteName: "Alex Barr - Full Stack Developer",
     title: "Alex Barr - Full Stack Developer | Sydney, Australia",
     description:

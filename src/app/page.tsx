@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-background text-foreground min-h-screen min-w-screen overflow-hidden">
+    <main className="bg-background text-foreground min-h-screen w-full overflow-x-hidden">
       <Navbar />
 
       <AnimatedHeader />

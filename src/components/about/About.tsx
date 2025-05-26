@@ -98,7 +98,7 @@ const About = () => {
 
               <div className="bg-primary/10 border-primary/20 mt-10 rounded-lg border p-4">
                 <p className="text-primary font-medium">
-                  🚀 Currently seeking new opportunities to contribute to
+                  Currently seeking new opportunities to contribute to
                   innovative projects and collaborate with forward-thinking
                   teams.
                 </p>
