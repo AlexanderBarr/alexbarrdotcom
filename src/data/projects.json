@@ -47,6 +47,24 @@
       ]
     },
     {
+      "id": "marvelcomic",
+      "title": "Marvel Comic Lookup",
+      "image": "/marvelcomicapi.png",
+      "startDate": "2024-08",
+      "endDate": "2024-08",
+      "description": "A simple web app that allows you to search for Marvel comics by title, author, or character. It uses the Marvel API to fetch the data.",
+      "projectUrl": "https://marvelcomic.vercel.app/",
+      "githubUrl": "https://github.com/AlexanderBarr/marvelcomic",
+      "technologiesUsed": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "GitHub",
+        "REST API"
+      ]
+    },
+    {
       "id": "ambitioneducation",
       "title": "Ambition Education",
       "image": "/ambitioneducation.png",
