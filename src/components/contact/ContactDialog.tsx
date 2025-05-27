@@ -165,12 +165,8 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogClose
-          className="ring-offset-background focus:ring-ring absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
-          disabled={status === "sending"}
-        >
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
+        <DialogClose className="absolute top-4 right-4 z-10 rounded-full bg-white p-2 opacity-70 backdrop-blur-sm transition-opacity hover:opacity-100">
+          <X className="h-4 w-4 text-black" />
         </DialogClose>
 
         <DialogHeader>

@@ -23,6 +23,7 @@
         "XML"
       ]
     },
+
     {
       "id": "gardenguru",
       "title": "Garden Guru",
@@ -41,6 +42,7 @@
         "GitHub"
       ]
     },
+
     {
       "id": "marvelcomic",
       "title": "Marvel Comic Lookup",
@@ -96,6 +98,24 @@
       "endDate": "2019-11",
       "description": "Tim the tiler is a trusted tiling company known for precision, reliability, and top-quality craftsmanship. Serving Penrith and surrounding areas, Tim the tiler specializes in residential and commercial tiling projects—ranging from kitchens and bathrooms to outdoor spaces. With a keen eye for detail and a commitment to excellence, they turn surfaces into standout features that last.",
       "technologiesUsed": ["WordPress", "JavaScript"]
+    },
+    {
+      "id": "portfolio",
+      "title": "Portfolio",
+      "image": "/portfolio.png",
+      "startDate": "2025-05",
+      "endDate": "2025-05",
+      "description": "This is my portfolio website, built with React, Tailwind CSS, and TypeScript. It showcases my projects, skills, and experience. It's hosted on Vercel and the code is available on GitHub.",
+      "githubUrl": "https://github.com/AlexanderBarr/alexbarrdotcom",
+      "technologiesUsed": [
+        "TypeScript",
+        "Next.js",
+        "Vercel",
+        "React",
+        "Node.js",
+        "Tailwind CSS",
+        "GitHub"
+      ]
     }
   ]
 }

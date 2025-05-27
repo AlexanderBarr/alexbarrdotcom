@@ -3,10 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/utils";
-import { Button } from "~/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
-import { Menu } from "lucide-react";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { useEffect, useState } from "react";
 import { ContactDialog } from "~/components/contact/ContactDialog";
 
